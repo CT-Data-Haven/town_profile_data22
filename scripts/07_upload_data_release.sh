@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-data="$1"
-headings="$2"
-notes="$3"
+# data="$1"
+# headings="$2"
+# notes="$3"
+files="$@"
 
 # is there already a release called viz? if not, create it
 if ! gh release view viz > /dev/null 2>&1; then
@@ -9,7 +10,7 @@ if ! gh release view viz > /dev/null 2>&1; then
 fi
 
 gh release upload viz \
-  "$data" "$headings" "$notes" \
+  $files \
   --clobber
 
 gh release view viz \

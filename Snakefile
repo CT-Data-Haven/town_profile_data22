@@ -112,13 +112,20 @@ rule upload_shapes:
 
 rule upload_viz_data:
     input:
-        data = rules.viz_data.output.viz,
-        headings = rules.headings.output.headings,
-        notes = rules.notes.output.notes,
+        # data = rules.viz_data.output.viz,
+        # headings = rules.headings.output.headings,
+        # notes = rules.notes.output.notes,
+        # xwalk = rules.notes.output.xwalk,
+        [rules.viz_data.output.viz,
+         rules.headings.output.headings,
+         rules.notes.output.notes,
+         rules.notes.output.xwalk]
     output:
         flag = '.viz_uploaded.json',
     shell:
-        'bash ./scripts/07_upload_data_release.sh {input.data} {input.headings} {input.notes}'
+        '''
+        bash ./scripts/07_upload_data_release.sh {input}
+        '''
 
 
 rule sync_to_dw:
