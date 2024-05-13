@@ -1,1 +1,35 @@
-{"geography":{"Capitol COG":["Andover","Avon","Berlin","Bloomfield","Bolton","Canton","Columbia","Coventry","East Granby","East Hartford","East Windsor","Ellington","Enfield","Farmington","Glastonbury","Granby","Hartford","Hebron","Manchester","Mansfield","Marlborough","New Britain","Newington","Plainville","Rocky Hill","Simsbury","Somers","South Windsor","Southington","Stafford","Suffield","Tolland","Vernon","West Hartford","Wethersfield","Willington","Windsor","Windsor Locks"],"Greater Bridgeport COG":["Bridgeport","Easton","Fairfield","Monroe","Stratford","Trumbull"],"Lower Connecticut River Valley COG":["Chester","Clinton","Cromwell","Deep River","Durham","East Haddam","East Hampton","Essex","Haddam","Killingworth","Lyme","Middlefield","Middletown","Old Lyme","Old Saybrook","Portland","Westbrook"],"Naugatuck Valley COG":["Ansonia","Beacon Falls","Bethlehem","Bristol","Cheshire","Derby","Middlebury","Naugatuck","Oxford","Plymouth","Prospect","Seymour","Shelton","Southbury","Thomaston","Waterbury","Watertown","Wolcott","Woodbury"],"Northeastern Connecticut COG":["Ashford","Brooklyn","Canterbury","Chaplin","Eastford","Hampton","Killingly","Plainfield","Pomfret","Putnam","Scotland","Sterling","Thompson","Union","Voluntown","Woodstock"],"Northwest Hills COG":["Barkhamsted","Burlington","Canaan","Colebrook","Cornwall","Goshen","Hartland","Harwinton","Kent","Litchfield","Morris","New Hartford","Norfolk","North Canaan","Roxbury","Salisbury","Sharon","Torrington","Warren","Washington","Winchester"],"South Central Connecticut COG":["Bethany","Branford","East Haven","Guilford","Hamden","Madison","Meriden","Milford","New Haven","North Branford","North Haven","Orange","Wallingford","West Haven","Woodbridge"],"Southeastern Connecticut COG":["Bozrah","Colchester","East Lyme","Franklin","Griswold","Groton","Lebanon","Ledyard","Lisbon","Montville","New London","North Stonington","Norwich","Preston","Salem","Sprague","Stonington","Waterford","Windham"],"Western Connecticut COG":["Bethel","Bridgewater","Brookfield","Danbury","Darien","Greenwich","New Canaan","New Fairfield","New Milford","Newtown","Norwalk","Redding","Ridgefield","Sherman","Stamford","Weston","Westport","Wilton"]},"sources":[{"source":"US Census Bureau.","project":"American Community Survey 2022 5-year estimates.","year":2022,"url":"https://data.census.gov"},{"source":"Centers for Disease Control and Prevention.","project":"PLACES.","year":2023,"url":"https://www.cdc.gov/places"},{"source":"National Center for Health Statistics.","project":"U.S. Small-Area Life Expectancy Estimates Project (USALEEP): Life Expectancy Estimates File for Connecticut, 2010-2015.","year":2018,"url":"https://www.cdc.gov/nchs/nvss/usaleep/usaleep.html"},{"source":"DataHaven.","project":"DataHaven Community Wellbeing Survey, 2015-2021.","year":2024,"url":"https://www.ctdatahaven.org"}],"dwurls":{"bridgeport":"xbchgknlc3oqkxk6nn7bz5n6ztafii","hartford":"7yqc5smofq5ngwoddvbekoauglnbco","new_haven":"qpqwsh7za7yyme7iiluxy7jg34ceos","stamford":"zceo5g3kzu5mhcaptbkqogdqusmkfm","towns_basic":null}}
+{
+  "sources": [
+    {
+      "source": "US Census Bureau.",
+      "project": "American Community Survey 2022 5-year estimates.",
+      "year": 2022,
+      "url": "https://data.census.gov"
+    },
+    {
+      "source": "Centers for Disease Control and Prevention.",
+      "project": "PLACES.",
+      "year": 2023,
+      "url": "https://www.cdc.gov/places"
+    },
+    {
+      "source": "National Center for Health Statistics.",
+      "project": "U.S. Small-Area Life Expectancy Estimates Project (USALEEP): Life Expectancy Estimates File for Connecticut, 2010-2015.",
+      "year": 2018,
+      "url": "https://www.cdc.gov/nchs/nvss/usaleep/usaleep.html"
+    },
+    {
+      "source": "DataHaven.",
+      "project": "DataHaven Community Wellbeing Survey, 2015-2021.",
+      "year": 2024,
+      "url": "https://ctdatahaven.org/reports/datahaven-community-wellbeing-survey"
+    }
+  ],
+  "dwurls": {
+    "bridgeport": "xbchgknlc3oqkxk6nn7bz5n6ztafii",
+    "hartford": "7yqc5smofq5ngwoddvbekoauglnbco",
+    "new_haven": "qpqwsh7za7yyme7iiluxy7jg34ceos",
+    "stamford": "zceo5g3kzu5mhcaptbkqogdqusmkfm",
+    "towns_basic": null
+  }
+}

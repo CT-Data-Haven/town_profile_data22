@@ -48,10 +48,11 @@ rule headings:
 
 rule notes:
     input:
-        '_utils/manual/sources.txt',
-        '_utils/manual/urls.txt',
+        sources = '_utils/manual/sources.txt',
+        urls = '_utils/manual/urls.txt',
     output:
         notes = 'to_viz/notes.json',
+        xwalk = 'to_viz/town_cog_xwalk.json',
     script:
         'scripts/00c_make_notes.R'
 
