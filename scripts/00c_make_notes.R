@@ -19,7 +19,8 @@ if (exists("snakemake")) {
 geo_meta <- cwi::xwalk |>
   distinct(cog, town) |>
   select(town, cog) |>
-  tibble::deframe()
+  tibble::deframe() |>
+  as.list()
 
 ############ NOTES #####################################################
 # geography meta, sources, download URLs
@@ -31,4 +32,4 @@ urls <- readr::read_csv(paths_in[["urls"]], show_col_types = FALSE) |>
 notes <- list(sources = sources, dwurls = urls)
 jsonlite::write_json(notes, paths_out[["notes"]], auto_unbox = TRUE)
 
-jsonlite::write_json(geo_meta, paths_out[["xwalk"]])
+jsonlite::write_json(geo_meta, paths_out[["xwalk"]], auto_unbox = TRUE)
