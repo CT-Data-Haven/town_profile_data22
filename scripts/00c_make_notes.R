@@ -19,6 +19,7 @@ if (exists("snakemake")) {
 geo_meta <- cwi::xwalk |>
   distinct(cog, town) |>
   select(town, cog) |>
+  mutate(cog = cwi::fix_cogs(cog)) |>
   tibble::deframe() |>
   as.list()
 

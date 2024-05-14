@@ -18,6 +18,7 @@ if (exists("snakemake")) {
 }
 
 # datasets need indicators as tXother_race, mXasthma to match meta
+# need to reconcile cog names
 acs <- readRDS(paths[["acs"]]) |>
   mutate(topic = as_factor(topic)) |>
   mutate(level = fct_relabel(level, stringr::str_remove, "\\d_") |>
@@ -26,7 +27,10 @@ acs <- readRDS(paths[["acs"]]) |>
   tidyr::pivot_longer(estimate:share, names_to = "type", values_drop_na = TRUE) |>
   mutate(type = fct_recode(type, t = "estimate", m = "share")) |>
   mutate(year = as.character(year)) |>
-  filter(topic %in% c("age", "race", "foreign_born", "poverty", "income_children", "income_seniors", "tenure", "housing_cost"))
+  filter(topic %in% c(
+    "age", "race", "foreign_born", "poverty",
+    "income_children", "income_seniors", "tenure", "housing_cost"
+  )) 
 
 cdc <- readRDS(paths[["cdc"]]) |>
   mutate(type = factor("m")) |>
@@ -43,7 +47,6 @@ cdc <- readRDS(paths[["cdc"]]) |>
       life_exp = "life_expectancy",
       insurance = "health_insurance"
     )) |>
-  mutate(level = fct_recode(level, cog = "region")) |>
   rename(indicator = question) |>
   select(topic, level, name, year, indicator, value, type)
 
@@ -53,15 +56,13 @@ cws <- paths[c("civic", "health", "walk")] |>
   filter(age == "Total") |>
   filter(race == "Total") |>
   filter(large_sample) |>
-  mutate(level = as_factor(level) |>
-    fct_recode(cog = "region")) |>
   mutate(year = "2015-2021") |>
   mutate(type = "m") |>
   select(topic, level, name, year, indicator, value, type)
 
-geos <- acs |>
-  filter(level %in% c("state", "cog", "town")) |>
-  distinct(level, name)
+# geos <- acs |>
+#   filter(level %in% c("state", "cog", "town")) |>
+#   distinct(level, name)
 
 hdrs <- jsonlite::read_json(paths[["headings"]], simplifyDataFrame = TRUE) |>
   map(pluck, "indicators") |>
@@ -70,7 +71,11 @@ hdrs <- jsonlite::read_json(paths[["headings"]], simplifyDataFrame = TRUE) |>
 # use headings to filter
 out <- tibble::lst(acs, cdc, cws) |>
   bind_rows(.id = "source") |>
-  semi_join(geos, by = c("name", "level")) |>
+  mutate(level = ifelse(grepl("COG$", name), "cog", level) |>
+    as_factor()) |>
+  filter(level %in% c("state", "cog", "town")) |>
+  mutate(name = cwi::fix_cogs(name)) |>
+  # semi_join(geos, by = c("name", "level")) |>
   mutate(topic = as_factor(topic) |>
     fct_collapse(
       health_outcomes = c("HLTHOUT", "life_expectancy"),
@@ -90,6 +95,7 @@ out <- tibble::lst(acs, cdc, cws) |>
   semi_join(hdrs, by = c("topic", "indicator")) |>
   mutate(across(where(is.factor), fct_drop)) |>
   # left_join(meta, by = "indicator") |>
-  arrange(topic, level, name)
+  arrange(topic, level, name) |>
+  distinct(topic, indicator, level, name, .keep_all = TRUE)
 
 saveRDS(out, path_out)
