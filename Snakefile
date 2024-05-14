@@ -163,7 +163,7 @@ rule all:
         rules.distro.output,
         rules.upload_shapes.output.flag,
         rules.upload_viz_data.output.flag,
-        # rules.sync_to_dw.output.flag,
+        rules.sync_to_dw.output.flag,
         rules.download_data.output.flag,
 
 # ---- CLEANUP ----

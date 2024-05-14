@@ -16,12 +16,18 @@ if (exists("snakemake")) {
 
 # each town has cog for comparison
 # filter for town being shown, then pull up definition
-geo_meta <- cwi::xwalk |>
-  distinct(cog, town) |>
-  select(town, cog) |>
-  mutate(cog = cwi::fix_cogs(cog)) |>
-  tibble::deframe() |>
-  as.list()
+town_cog <- cwi::xwalk |>
+  distinct(cog_fips, town) |>
+  select(town, cog_fips)
+
+cogs <- cwi::xwalk |>
+  distinct(cog_fips, cog) |>
+  mutate(cog = cwi::fix_cogs(cog))
+
+geo_meta <- list(xwalk = town_cog, cogs = cogs) |>
+  map(mutate, cog_fips = substring(cog_fips, 3, 5)) |>
+  map(tibble::deframe) |>
+  map(as.list)
 
 ############ NOTES #####################################################
 # geography meta, sources, download URLs

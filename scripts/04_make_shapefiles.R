@@ -10,10 +10,14 @@ if (exists("snakemake")) {
 }
 
 ############ SHAPEFILES ################################################
-cwi::town_sf |>
+town_sf <- tigris::county_subdivisions(state = "09", cb = TRUE) |>
+  select(name = NAME, cog_fips = COUNTYFP) |>
+  # rmapshaper::ms_simplify(keep = 0.8) |>
   st_transform(4326) |>
-  st_cast("MULTIPOLYGON") |>
-  select(-GEOID) |>
-  geojsonio::geojson_write(object_name = "town", file = out_path)
+  st_cast("MULTIPOLYGON")
 
-system(stringr::str_glue("mapshaper {out_path} -clean -filter-slivers -o force format=topojson {out_path}"))
+geojsonio::geojson_write(town_sf, object_name = "town", file = out_path)
+
+system(stringr::str_glue(
+  "mapshaper {out_path} -clean -filter-slivers -simplify 75% -o force format=topojson {out_path}"
+))
