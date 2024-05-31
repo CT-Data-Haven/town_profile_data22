@@ -5,7 +5,7 @@ dw_key = os.getenv('DW_AUTH_TOKEN')
 # ---- SETUP ----
 acs_year = 2022
 cdc_year = 2023
-equity_year = 2023
+# equity_year = 2023
 
 
 def r_with_args(script):
@@ -20,20 +20,21 @@ rule download_data:
     output:
         acs = f'input_data/acs_town_basic_profile_{acs_year}.rds',
         cdc = f'input_data/cdc_health_all_lvls_nhood_{cdc_year}.rds',
-        civic = 'input_data/cws_1521_civic_by_loc.csv',
-        health = 'input_data/cws_1521_health_race.csv',
-        walk = 'input_data/cws_1521_walkability_race.csv',
+        cws = 'input_data/mrp_estimates_town_profiles.csv',
+        # civic = 'input_data/cws_1521_civic_by_loc.csv',
+        # health = 'input_data/cws_1521_health_race.csv',
+        # walk = 'input_data/cws_1521_walkability_race.csv',
         acs_head = '_utils/acs_indicator_headings.txt',
         cdc_head = '_utils/cdc_indicators.txt',
-        cws_head = '_utils/cws_indicator_headings.txt',
+        cws_head = '_utils/mrp_cws_indicator_headings.txt',
         flag = '.meta_downloaded.json',
     params:
         acs_year = acs_year,
         cdc_year = cdc_year,
-        equity_year = equity_year,
+        # equity_year = equity_year,
     shell:
         '''
-        bash ./scripts/00a_download_data.sh {params.acs_year} {params.cdc_year} {params.equity_year}
+        bash ./scripts/00a_download_data.sh {params.acs_year} {params.cdc_year}
         '''
 
 rule headings:
@@ -50,6 +51,7 @@ rule notes:
     input:
         sources = '_utils/manual/sources.txt',
         urls = '_utils/manual/urls.txt',
+        methods = '_utils/manual/methods.txt',
     output:
         notes = 'to_viz/notes.json',
         xwalk = 'to_viz/town_cog_xwalk.json',
@@ -60,17 +62,19 @@ rule combine_datasets:
     input:
         acs = rules.download_data.output.acs,
         cdc = rules.download_data.output.cdc,
-        civic = rules.download_data.output.civic,
-        health = rules.download_data.output.health,
-        walk = rules.download_data.output.walk,
+        cws = rules.download_data.output.cws,
+        # civic = rules.download_data.output.civic,
+        # health = rules.download_data.output.health,
+        # walk = rules.download_data.output.walk,
         headings = rules.headings.output.headings,
+        cws_head = rules.download_data.output.cws_head,
     params:
         acs_year = acs_year,
-        cdc_year = cdc_year,
+        # cdc_year = cdc_year,
     output:
         comb = f'output_data/{acs_year}_acs_health_cws_comb.rds',
     script:
-        'scripts/01_join_acs_health.R'
+        'scripts/01_join_datasets.R'
 
 rule distro:
     input:

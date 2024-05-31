@@ -6,7 +6,8 @@ if (exists("snakemake")) {
 } else {
   paths_in <- list(
     sources = file.path("_utils", "manual", "sources.txt"),
-    urls = file.path("_utils", "manual", "urls.txt")
+    urls = file.path("_utils", "manual", "urls.txt"),
+    methods = file.path("_utils", "manual", "methods.txt")
   )
   paths_out <- list(
     notes = file.path("to_viz", "notes.json"),
@@ -31,7 +32,11 @@ geo_meta <- list(xwalk = town_cog, cogs = cogs) |>
 
 ############ NOTES #####################################################
 # geography meta, sources, download URLs
-sources <- readr::read_delim(paths_in[["sources"]], delim = ";", show_col_types = FALSE)
+methods <- readr::read_csv(paths_in[["methods"]], show_col_types = FALSE)
+
+sources <- readr::read_delim(paths_in[["sources"]], delim = ";", show_col_types = FALSE) |>
+  left_join(methods, by = "id")
+
 urls <- readr::read_csv(paths_in[["urls"]], show_col_types = FALSE) |>
   tibble::deframe() |>
   as.list()

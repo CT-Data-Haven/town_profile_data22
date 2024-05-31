@@ -8,12 +8,14 @@ equityr=$3
 acsrepo="CT-Data-Haven/$1acs"
 cdcrepo="CT-Data-Haven/cdc_aggs"
 scratchrepo="CT-Data-Haven/scratchpad"
-equitrepo="CT-Data-Haven/towns$equityr"
+# equitrepo="CT-Data-Haven/towns$equityr"
+mrprepo="CT-Data-Haven/mrp"
 
 acstag="dist"
 cdctag="v$cdcyr"
 scratchtag="meta"
-equittag="dist"
+# equittag="dist"
+mrptag="town_profiles"
 
 gh release download "$acstag" \
   --repo "$acsrepo" \
@@ -31,25 +33,32 @@ gh release download "$scratchtag" \
   --repo "$scratchrepo" \
   --pattern "acs_indicator_headings.txt" \
   --pattern "cdc_indicators.txt" \
-  --pattern "cws_indicator_headings.txt" \
+  --pattern "mrp_cws_indicator_headings.txt" \
   --dir _utils \
   --clobber
 
-gh release download "$equittag" \
-  --repo "$equitrepo" \
-  --pattern "data.zip" \
+# gh release download "$equittag" \
+#   --repo "$equitrepo" \
+#   --pattern "data.zip" \
+#   --dir input_data \
+#   --clobber
+
+gh release download "$mrptag" \
+  --repo "$mrprepo" \
+  --pattern "*.csv" \
   --dir input_data \
   --clobber
 
 # extract cws files from town equity data, delete zip file
-unzip -o -j input_data/data.zip \
-  data/health/cws_1521_health_race.csv \
-  data/civic/cws_1521_civic_by_loc.csv \
-  data/environ/cws_1521_walkability_race.csv \
-  -d input_data 
+# unzip -o -j input_data/data.zip \
+#   data/health/cws_1521_health_race.csv \
+#   data/civic/cws_1521_civic_by_loc.csv \
+#   data/environ/cws_1521_walkability_race.csv \
+#   -d input_data 
 
-rm input_data/data.zip
+# rm input_data/data.zip
 
+# make flag file
 gh release view "$scratchtag" \
   --repo "$scratchrepo" \
   --json id,tagName,assets,createdAt,url > \

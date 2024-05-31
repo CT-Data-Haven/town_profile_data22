@@ -1,0 +1,2 @@
+id,methodology 
+cws,"In order to include Community Wellbeing Survey results for small towns, values shown here are based on a model rather than direct measurements."
