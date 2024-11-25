@@ -1,6 +1,8 @@
+#!/usr/bin/env bash
+
 acsyr=$1
 cdcyr=$2
-equityr=$3
+cwsyr=$3
 
 # download assets from latest releases of cdc_aggs (tagged v$cdcyr) and $acsyracs (tagged dist)
 # comparable to input_data/acs_nhoods_by_city_$(YR).rds input_data/cdc_health_all_lvls_nhood_$(YR).rds 
@@ -14,8 +16,7 @@ mrprepo="CT-Data-Haven/mrp"
 acstag="dist"
 cdctag="v$cdcyr"
 scratchtag="meta"
-# equittag="dist"
-mrptag="town_profiles"
+mrptag="dcws$cwsyr"
 
 gh release download "$acstag" \
   --repo "$acsrepo" \

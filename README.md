@@ -13,11 +13,12 @@ Datasets prepped for download from other repos are in their respective
 tagged releases to ensure their stability and reproduceability. Not all
 assets from each tag are used, but the files in those releases are:
 
-| repo       | tag                                                                   | updated              | assets                                                                                                                             |
-|:-----------|:----------------------------------------------------------------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
-| 2022acs    | [dist](https://github.com/CT-Data-Haven/2022acs/releases/tag/dist)    | 2024-05-23T19:29:47Z | acs_nhoods_by_city_2022.rds, acs_town_basic_profile_2022.rds                                                                       |
-| cdc_aggs   | [v2023](https://github.com/CT-Data-Haven/cdc_aggs/releases/tag/v2023) | 2024-05-23T18:25:57Z | cdc_health_all_lvls_nhood_2023.rds, cdc_health_all_lvls_wide_2023.csv                                                              |
-| scratchpad | [meta](https://github.com/CT-Data-Haven/scratchpad/releases/tag/meta) | 2024-05-29T00:12:40Z | acs_headings_extra.txt, acs_indicator_headings.txt, cdc_indicators.txt, cws_indicator_headings.txt, mrp_cws_indicator_headings.txt |
+| repo | tag | updated | assets |
+|:---|:---|:---|:---|
+| 2022acs | [dist](https://github.com/CT-Data-Haven/2022acs/releases/tag/dist) | 2024-05-23 | acs_nhoods_by_city_2022.rds, acs_town_basic_profile_2022.rds |
+| cdc_aggs | [v2023](https://github.com/CT-Data-Haven/cdc_aggs/releases/tag/v2023) | 2024-05-23 | cdc_health_all_lvls_nhood_2023.rds, cdc_health_all_lvls_wide_2023.csv |
+| mrp | [dcws15_24](https://github.com/CT-Data-Haven/mrp/releases/tag/dcws15_24) | 2024-11-24 | mrp_estimates_2015_2024_town_profiles.csv |
+| scratchpad | [meta](https://github.com/CT-Data-Haven/scratchpad/releases/tag/meta) | 2024-11-22 | acs_headings_extra.txt, acs_indicator_headings.txt, cdc_indicators.txt, cws_indicator_headings.txt, mrp_cws_indicator_headings.txt |
 
 This also creates its own release back into the scratchpad repo with
 topojson files of neighborhoods for each city to use for online
@@ -41,6 +42,7 @@ visualization:
 This uses snakemake to build. Rules available are:
 
     all
+    all_no_sync
     clean
     combine_datasets
     distro

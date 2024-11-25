@@ -8,10 +8,7 @@ if (exists("snakemake")) {
     paths <- list(
         acs = stringr::str_glue("acs_town_basic_profile_{acs_year}.rds"),
         cdc = stringr::str_glue("cdc_health_all_lvls_nhood_{cdc_year}.rds"),
-        # civic = "cws_1521_civic_by_loc.csv",
-        # health = "cws_1521_health_race.csv",
-        # walk = "cws_1521_walkability_race.csv"
-        cws = "mrp_estimates_town_profiles.csv"
+        cws = stringr::str_glue("dcws{cws_year}_town_mrp_estimates.csv")
     ) |>
         map(\(x) file.path("input_data", x))
     paths[["headings"]] <- file.path("to_viz", "indicators.json")
@@ -69,7 +66,7 @@ cws <- readr::read_csv(paths[["cws"]], show_col_types = FALSE) |>
     )) |>
     mutate(value = round(value, digits = 2)) |>
     mutate(
-        year = "2015-2021",
+        year = extract_yrs(cws_year),
         type = "m"
     ) |>
     mutate(level = as_factor(level) |>

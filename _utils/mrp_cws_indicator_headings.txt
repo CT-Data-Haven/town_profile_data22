@@ -1,25 +1,25 @@
 code,topic,long,indicator,display
-q44,financial_security,How well would you say you are managing financially these days? Would you say you are,financial_insecurity,Just getting by financially
+q44,financial_security,How well would you say you are managing financially these days?,financial_insecurity,Just getting by or struggling financially
 q62,financial_security,Have there been times in the past 12 months when you did not have enough money to buy food that you or your family needed?,food_insecurity,Food insecure in past year
 q64,financial_security,"In the last 12 months, have you not had enough money to provide adequate shelter or housing for you or your family?",housing_insecurity,Housing insecure in past year
 q65,financial_security,"In the past 12 months, did you stay home when you needed or wanted to go someplace because you had no access to reliable transportation?",transport_insecurity,Transportation insecure in past year
-q9,financial_security,Do you have access to a car when you need it? Would you say you have access,car_access,Access to a car
-q17a,neighborhood_assets,"Many stores, banks, markets or places to go are within easy walking distance of my home.",locations_in_walking_dist,"Stores, banks, etc. are in walking distance"
-q17c,neighborhood_assets,"There are places to bicycle in or near my neighborhood that are safe from traffic, such as on the street or on special lanes, separate paths or trails.",safe_biking,Safe places to bike in area
-q17e,neighborhood_assets,"My neighborhood has several free or low cost recreation facilities such as parks, playgrounds, public swimming pools, etc.",local_rec_facilities,Local recreational facilities available
-q17f,neighborhood_assets,I do not feel safe to go on walks in my neighborhood at night.,safe_to_walk_at_night,Feel safe walking at night
-q17g,neighborhood_assets,People in this neighborhood can be trusted.,trust_neighbors,Trust neighbors
-q17h,neighborhood_assets,Children and youth in my town generally have the positive role models they need around here.,youth_have_positive_role_models,Local youth have positive role models
-q6,neighborhood_assets,"How would you describe your ability to influence local-government decision making? Would you say that you have great influence, moderate influence, a little influence, or no influence at all?",have_some_influence_over_local_govt,Have some influence over local government
-q19,personal_wellbeing,"The next set of questions are about your health. How would you rate your overall health, would you say your health is excellent, very good, good, fair or poor?",self_rated_health,Health is excellent or very good
-q20,personal_wellbeing,"Overall, how satisfied are you with your life nowadays?",satisfied_with_life,Satisfied with life
-q21,personal_wellbeing,"Overall, how happy did you feel yesterday?",happy,Mostly or completely happy
-q22,personal_wellbeing,"Overall, how anxious did you feel yesterday?",anxious,Mostly or completely anxious
+q9,financial_security,Do you have access to a car when you need it?,car_access,Access to a car
+q17a,neighborhood_assets,"Many stores, banks, markets or places to go are within easy walking distance of my home (agree).",locations_in_walking_dist,"Stores, banks, etc. are in walking distance"
+q17c,neighborhood_assets,"There are places to bicycle in or near my neighborhood that are safe from traffic, such as on the street or on special lanes, separate paths or trails (agree).",safe_biking,Safe places to bike in area
+q17e,neighborhood_assets,"My neighborhood has several free or low cost recreation facilities such as parks, playgrounds, public swimming pools, etc (agree).",local_rec_facilities,Local recreational facilities available
+q17f,neighborhood_assets,I do not feel safe to go on walks in my neighborhood at night (disagree).,safe_to_walk_at_night,Feel safe walking at night
+q17g,neighborhood_assets,People in this neighborhood can be trusted (agree).,trust_neighbors,Trust neighbors
+q17h,neighborhood_assets,Children and youth in my town generally have the positive role models they need around here (agree).,youth_have_positive_role_models,Local youth have positive role models
+q6,neighborhood_assets,"How would you describe your ability to influence local-government decision making?",have_some_influence_over_local_govt,Have some influence over local government
+q19,personal_wellbeing,"How would you rate your overall health?",self_rated_health,Health is excellent or very good
+q20,personal_wellbeing,"How satisfied are you with your life nowadays?",satisfied_with_life,Satisfied with life
+q21,personal_wellbeing,"How happy did you feel yesterday?",happy,Mostly or completely happy
+q22,personal_wellbeing,"How anxious did you feel yesterday?",anxious,Mostly or completely anxious
 q37_1,personal_wellbeing,How often do you get the social and emotional support you need?,social_support,Have social and emotional support
 q1,quality_of_life,Are you satisfied with the city or area where you live?,satisfied_with_area,Satisfied with area
 q4a,quality_of_life,How responsive local government is to the needs of residents,local_govt_is_responsive,Local government is responsive
-q4d,quality_of_life,The job done by the police to keep residents safe,police_approval,Local police keep residents safe
-q4e,quality_of_life,The ability of residents to obtain suitable employment,work_opportunities,Suitable work opportunities available
-q4f,quality_of_life,As a place to raise children,good_place_to_raise_kids,Area is good to raise kids
-q4g,quality_of_life,The condition of public parks and other public recreational facilities,parks_in_good_condition,Parks are in good condition
-q4h,quality_of_life,"The availability of affordable, high-quality fruits and vegetables",produce_available,Affordable quality produce is available
+q4d,quality_of_life,The job done by the police to keep residents safe (good),police_approval,Local police keep residents safe
+q4e,quality_of_life,The ability of residents to obtain suitable employment (good),work_opportunities,Suitable work opportunities available
+q4f,quality_of_life,As a place to raise children (good),good_place_to_raise_kids,Area is good to raise kids
+q4g,quality_of_life,The condition of public parks and other public recreational facilities (good),parks_in_good_condition,Parks are in good condition
+q4h,quality_of_life,"The availability of affordable, high-quality fruits and vegetables (good)",produce_available,Affordable quality produce is available

@@ -1,0 +1,4 @@
+project,year,repo,tag,dataset,headings
+acs,2022,{year}acs,dist,acs_town_basic_profile_{year}.rds,acs_indicator_headings.txt
+cdc,2023,cdc_aggs,v{year},cdc_health_all_lvls_nhood_{year}.rds,cdc_indicators.txt
+cws,2015_2024,mrp,dcws{year},mrp_estimates_{year}_town_profiles.csv,mrp_cws_indicator_headings.txt

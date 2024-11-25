@@ -35,7 +35,8 @@ geo_meta <- list(xwalk = town_cog, cogs = cogs) |>
 methods <- readr::read_csv(paths_in[["methods"]], show_col_types = FALSE)
 
 sources <- readr::read_delim(paths_in[["sources"]], delim = ";", show_col_types = FALSE) |>
-  left_join(methods, by = "id")
+  left_join(methods, by = "id") |>
+  mutate(across(everything(), \(x) purrr::map_chr(x, stringr::str_glue)))
 
 urls <- readr::read_csv(paths_in[["urls"]], show_col_types = FALSE) |>
   tibble::deframe() |>

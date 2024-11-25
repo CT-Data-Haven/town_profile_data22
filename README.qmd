@@ -16,6 +16,7 @@ Datasets prepped for download from other repos are in their respective tagged re
 #| message: false
 repos <- list("2022acs" = "dist",
               "cdc_aggs" = "v2023",
+              "mrp" = "dcws15_24",
               "scratchpad" = "meta") |>
   tibble::enframe(name = "repo", value = "tag") |>
   tidyr::unnest(tag)
@@ -32,6 +33,7 @@ repos |>
   purrr::map(dplyr::mutate, repo = stringr::str_extract(url, "(?<=CT\\-Data\\-Haven\\/)(\\w+)(?=\\/)")) |>
   dplyr::bind_rows() |>
   dplyr::mutate(tag = stringr::str_glue("[{tag}]({url})")) |>
+  dplyr::mutate(updated = lubridate::as_datetime(updated) |> lubridate::as_date()) |>
   dplyr::group_by(repo, tag, updated) |>
   dplyr::summarise(assets = toString(assets_name)) |>
   knitr::kable()
