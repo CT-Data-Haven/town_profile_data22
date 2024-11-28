@@ -9,7 +9,7 @@ q17c,neighborhood_assets,"There are places to bicycle in or near my neighborhood
 q17e,neighborhood_assets,"My neighborhood has several free or low cost recreation facilities such as parks, playgrounds, public swimming pools, etc (agree).",local_rec_facilities,Local recreational facilities available
 q17f,neighborhood_assets,I do not feel safe to go on walks in my neighborhood at night (disagree).,safe_to_walk_at_night,Feel safe walking at night
 q17g,neighborhood_assets,People in this neighborhood can be trusted (agree).,trust_neighbors,Trust neighbors
-q17h,neighborhood_assets,Children and youth in my town generally have the positive role models they need around here (agree).,youth_have_positive_role_models,Local youth have positive role models
+#q17h,neighborhood_assets,Children and youth in my town generally have the positive role models they need around here (agree).,youth_have_positive_role_models,Local youth have positive role models
 q6,neighborhood_assets,"How would you describe your ability to influence local-government decision making?",have_some_influence_over_local_govt,Have some influence over local government
 q19,personal_wellbeing,"How would you rate your overall health?",self_rated_health,Health is excellent or very good
 q20,personal_wellbeing,"How satisfied are you with your life nowadays?",satisfied_with_life,Satisfied with life

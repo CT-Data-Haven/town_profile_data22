@@ -144,10 +144,6 @@ rule upload_shapes:
 
 rule upload_viz_data:
     input:
-        # data = rules.viz_data.output.viz,
-        # headings = rules.headings.output.headings,
-        # notes = rules.notes.output.notes,
-        # xwalk = rules.notes.output.xwalk,
         [rules.viz_data.output.viz,
          rules.headings.output.headings,
          rules.notes.output.notes,

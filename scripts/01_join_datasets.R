@@ -60,10 +60,10 @@ cdc <- readRDS(paths[["cdc"]]) |>
 cws <- readr::read_csv(paths[["cws"]], show_col_types = FALSE) |>
     select(code = var, yes_bin, level, name, value = mrp_estimate) |>
     left_join(cws_hdr |> select(topic, code, indicator), by = "code") |>
-    mutate(value = ifelse(indicator %in% c("financial_insecurity", "safe_to_walk_at_night"),
-        1 - value,
-        value
-    )) |>
+    # mutate(value = ifelse(indicator %in% c("financial_insecurity", "safe_to_walk_at_night"),
+    #     1 - value,
+    #     value
+    # )) |>
     mutate(value = round(value, digits = 2)) |>
     mutate(
         year = extract_yrs(cws_year),

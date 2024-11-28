@@ -2,7 +2,7 @@ source("_utils/pkgs.R")
 
 ############ HEADINGS ##################################################
 if (exists("snakemake")) {
-    hdr_paths <- unlist(snakemake@input)
+    hdr_paths <- snakemake@input[["headings"]]
 } else {
     hdr_files <- c("acs_indicator_headings.txt", "cdc_indicators.txt", "mrp_cws_indicator_headings.txt")
     hdr_paths <- file.path("_utils", hdr_files)
