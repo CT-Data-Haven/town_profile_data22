@@ -32,8 +32,7 @@ headings <- hdr_paths |>
         topic = as_factor(topic) |>
             fct_recode(
                 health_risk_behaviors = "behaviors",
-                health_outcomes = "outcomes",
-                neighborhood_walkability = "walkability"
+                health_outcomes = "outcomes"
             ),
         format = case_when(
             grepl("life_exp", indicator) ~ ".1f",
@@ -49,7 +48,7 @@ headings <- hdr_paths |>
             fct_recode("Race and ethnicity" = "Race"),
         indicator = stringr::str_remove(indicator, "^[a-z]+\\s") |>
             as_factor() |>
-            fct_relevel("ages18plus", after = 2)
+            fct_relevel("total_pop", "ages18plus", after = 2)
     ) |>
     arrange(dataset, topic, indicator, type) |>
     tidyr::unite(col = indicator, type, indicator, sep = "X", remove = FALSE) |>

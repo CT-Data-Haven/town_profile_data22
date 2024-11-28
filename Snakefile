@@ -152,7 +152,6 @@ rule upload_viz_data:
         flag = '.viz_uploaded.json',
     shell:
         '''
-        gh release delete-asset viz indicators.json --yes
         bash ./scripts/07_upload_data_release.sh {input}
         '''
 
